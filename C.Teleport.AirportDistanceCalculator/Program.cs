@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace C_Teleport.AirportDistanceCalculator
+namespace C.Teleport.AirportDistanceCalculator
 {
     public class Program
     {
