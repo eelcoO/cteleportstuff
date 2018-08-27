@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.DependencyInjection;
 
 using Nancy.Owin;
@@ -27,7 +28,14 @@ namespace C.Teleport.AirportDistanceCalculator
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                RewriteOptions options = new RewriteOptions().AddRedirectToHttps();
 
+                app.UseRewriter(options);
+            }
+
+            app.UseStaticFiles();
             app.UseOwin(p => p.UseNancy());
         }
     }

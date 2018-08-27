@@ -3,15 +3,26 @@ using UnitsNet.Units;
 
 namespace C.Teleport.AirportDistanceCalculator.Services
 {
+    /// <summary>
+    /// Service to convert length units.
+    /// </summary>
+    /// <seealso cref="C.Teleport.AirportDistanceCalculator.Services.ILengthUnitOfMeasureConverterService" />
     public class LengthUnitOfMeasureConverterService : ILengthUnitOfMeasureConverterService
     {
         #region Implementation of ILengthUnitOfMeasureConverterService
 
-        public double ConvertLength(double quantity, LengthUnit fromUnit, LengthUnit toUnit)
+        /// <summary>
+        /// Converts the length.
+        /// </summary>
+        /// <param name="length">The length.</param>
+        /// <param name="fromUnit">From unit.</param>
+        /// <param name="toUnit">To unit.</param>
+        /// <returns></returns>
+        public double ConvertLength(double length, LengthUnit fromUnit, LengthUnit toUnit)
         {
-            Length length = new Length(quantity, fromUnit);
+            Length lengthObject = new Length(length, fromUnit);
 
-            return length.As(toUnit);
+            return lengthObject.As(toUnit);
         }
 
         #endregion

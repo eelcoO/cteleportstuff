@@ -11,11 +11,8 @@ using Nancy;
 using Nancy.Extensions;
 using Nancy.IO;
 using Nancy.ModelBinding;
-using Nancy.Swagger.Annotations.Attributes;
 
 using Serilog;
-
-using Swagger.ObjectModel;
 
 using UnitsNet.Units;
 
@@ -87,10 +84,6 @@ namespace C.Teleport.AirportDistanceCalculator.Modules
 
         #region Actions
 
-        [Route(HttpMethod.Post, "distance/calculate")]
-        [SwaggerResponse(HttpStatusCode.OK, Message = "OK", Model = typeof(DistanceCalculationResponse))]
-        [Route(Produces = new[] { "application/json", "application/xml" })]
-        [Route(Consumes = new[] { "application/json", "application/xml" })]
         private async Task<object> Post(dynamic argument)
         {
             DistanceCalculationRequest request = this.Bind<DistanceCalculationRequest>(); //Todo: Validation
